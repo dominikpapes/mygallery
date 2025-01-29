@@ -1,9 +1,11 @@
 const staticMyGallery = "my-gallery-site-v1";
 const assets = [
 	"/",
+	"/manifest",
 	"/index.html",
 	"/css/style.css",
 	"/js/app.js",
+	"/js/buttons.js",
 	"/images/camera.png",
 	"/images/bell.svg",
 	"/images/icons/icon-512x512.png",
