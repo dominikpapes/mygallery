@@ -16,7 +16,7 @@ function registerServiceWorker() {
 // funkcija za pokretanje pozadinske sinkronizacije
 function triggerSync() {
 	// provjeri je li service worker podrzan -- progressive enhancement
-	if ("serviceWorker" in navigator && navigator.serviceWorker.controller) {
+	if ("serviceWorker" in navigator) {
 		navigator.serviceWorker.ready.then((registration) => {
 			// registriraj sync event s tagom syncData
 			registration.sync
