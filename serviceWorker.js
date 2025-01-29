@@ -10,7 +10,6 @@ const assets = [
 	"/favicon.ico",
 ];
 
-
 // mock funkcija za sync
 async function syncOfflineData() {
 	console.log("Service worker: app back online, beginning background sync");
@@ -38,10 +37,39 @@ self.addEventListener("install", (installEvent) => {
 	);
 });
 
+self.addEventListener("activate", (event) => {
+	event.waitUntil(
+		caches.keys().then((keys) => {
+			return Promise.all(
+				keys.map((key) => {
+					if (key !== staticMyGallery) {
+						console.log("Service Worker: Removing old cache", key);
+						return caches.delete(key);
+					}
+				})
+			);
+		})
+	);
+});
+
 self.addEventListener("fetch", (fetchEvent) => {
 	fetchEvent.respondWith(
 		caches.match(fetchEvent.request).then((res) => {
-			return res || fetch(fetchEvent.request);
+			return (
+				res ||
+				fetch(fetchEvent.request).catch(() => {
+					if (fetchEvent.request.destination === "document") {
+						return caches.match("/index.html");
+					}
+					if (fetchEvent.request.destination === "image") {
+						return caches.match("/images/icons/icon-512x512.png");
+					}
+
+					return new Response("Resource not available offline", {
+						status: 503,
+					});
+				})
+			);
 		})
 	);
 });
