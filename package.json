@@ -1,0 +1,12 @@
+{
+  "name": "web2-lab6",
+  "version": "1.0.0",
+  "description": "web2 6th project",
+  "main": "index.js",
+  "scripts": {
+    "serve": "http-server .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

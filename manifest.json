@@ -1,0 +1,16 @@
+{
+    "name": "MyGallery",
+    "short_name": "MyGallery",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#E0CCBE",
+    "theme_color": "#3C3633",
+    "orientation": "portrait-primary",
+    "icons": [
+      {
+        "src": "/images/icons/icon-512x512.png",
+        "type": "image/png", "sizes": "512x512"
+      }
+    ]
+  }
+  
