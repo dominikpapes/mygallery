@@ -28,6 +28,8 @@ function triggerSync() {
 					console.error("Background sync failed:", err);
 				});
 		});
+	} else {
+		console.log("Service worker not supported.")
 	}
 }
 
