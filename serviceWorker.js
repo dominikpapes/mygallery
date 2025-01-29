@@ -1,7 +1,7 @@
 const staticMyGallery = "my-gallery-site-v1";
 const assets = [
 	"/",
-	"/manifest",
+	"/manifest.json",
 	"/index.html",
 	"/css/style.css",
 	"/js/app.js",
